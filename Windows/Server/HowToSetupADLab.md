@@ -1,4 +1,5 @@
 # Setting up the NIC, Renaming the Computer, and Rebooting
+
 ```Powershell
 # Define the Computer Name
 $computerName = "dc1"
@@ -28,9 +29,10 @@ Set-DNSClientServerAddress –interfaceIndex $ipIF –ServerAddresses $IPv4DNS
 # Rename the Computer, and Restart
 Rename-Computer -NewName $computerName -force
 Restart-Computer
- ```
+```
 
 # Install the ADDS Bits and Promote
+
 ```Powershell
 $domainName  = "contoso.com"
 $netBIOSname = "CONTOSO"
@@ -59,9 +61,8 @@ $forestProperties = @{
 Install-ADDSForest @forestProperties
 ```
 
- 
-
 # DNS, Sites & Services, and Time Keeping
+
 ```Powershell
 # Define DNS and Sites & Services Settings
 $IPv4netID = "10.10.100.0/24"
@@ -89,9 +90,10 @@ $Zones | Set-DnsServerZoneAging -Aging $True
 
 # Set Time Configuration
 w32tm /config /manualpeerlist:$timePeerList /syncfromflags:manual /reliable:yes /update
- ```
+```
 
 # Build an OU Structure
+
 ```Powershell
 $baseDN = "DC=contoso,DC=com"
 $resourcesDN = "OU=Resources," + $baseDN
@@ -103,21 +105,24 @@ New-ADOrganizationalUnit "Service Accounts" -path $resourcesDN
 New-ADOrganizationalUnit "Workstations" -path $resourcesDN
 New-ADOrganizationalUnit "Servers" -path $resourcesDN
 New-ADOrganizationalUnit "Users" -path $resourcesDN
- ```
+```
 
 # Enable the Recycle Bin
+
 ```Powershell
 $ForestFQDN = "contoso.com"
 $SchemaDC   = "dc1.contoso.com"
 
 Enable-ADOptionalFeature –Identity 'Recycle Bin Feature' –Scope ForestOrConfigurationSet –Target $ForestFQDN -Server $SchemaDC -confirm:$false
- ```
+```
 
 # Create User Accounts
+
 ```Powershell
 # Prompt for a Password
 $Password = Read-Host -assecurestring "User Password"
 ```
+
 ```Powershell
 # Create a Privileged Account
 $userProperties = @{
@@ -143,8 +148,10 @@ Add-ADGroupMember "Domain Admins" $userProperties.SamAccountName
 Add-ADGroupMember "Enterprise Admins" $userProperties.SamAccountName
 Add-ADGroupMember "Schema Admins" $userProperties.SamAccountName
 ```
-```Powershell
+
+
 # Create a Non-Privileged User Account
+```Powershell
 $userProperties = @{
 
     Name                 = "John Dougherty"
@@ -162,14 +169,16 @@ $userProperties = @{
 }
 
 New-ADUser @userProperties
- ```
+```
 
 # Secure & Disable the Administrator Account
+
 ```Powershell
 Set-ADUser Administrator -AccountNotDelegated:$true -SmartcardLogonRequired:$true -Enabled:$false
- ```
+```
 
 # Create an Active Directory Snapshot
+
 ```Powershell
 C:\Windows\system32\ntdsutil.exe snapshot "activate instance ntds" create quit quit
 ```
