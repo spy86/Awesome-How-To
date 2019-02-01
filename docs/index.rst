@@ -1,10 +1,10 @@
-HowToCollection
+How To Collection
 ===============
 
 .. figure:: http://www.ccu.edu/librarymedia/Images/How-To.png
    :alt: alt text
 
-   alt text
+   :alt: alt text
 List of contents:
 =================
 
