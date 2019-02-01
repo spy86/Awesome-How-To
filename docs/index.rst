@@ -9,10 +9,7 @@ List of contents:
 =================
 
 -  `Windows Server <docs/Windows/Server/List.rst>`__
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  `Windows Desktop <docs/Windows/Desktop/List.rst>`__
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  `Linux <Linux/List.rst>`__
-   ~~~~~~~~~~~~~~~~~~~~~~~~~
