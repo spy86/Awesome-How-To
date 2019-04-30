@@ -4,5 +4,4 @@
 
 # List of contents:
 - [ ]  [Windows Server](Windows/Server/List.md)
-- [ ]  [Windows Desktop](Windows/Desktop/List.md)
 - [ ]  [Networking](Networking/List.md)
